@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>爱游戏 · 产品说明与使用参考</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f0f5fa;
+            color: #1a2b3c;
+            line-height: 1.6;
+            padding: 24px 16px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 1120px;
+            width: 100%;
+        }
+
+        /* 头部 — 简约知识感 */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #b0d4d9;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #10444c;
+            margin-bottom: 8px;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #3c6b74;
+            background: #d7e9ed;
+            padding: 6px 18px;
+            border-radius: 40px;
+            display: inline-block;
+            font-weight: 400;
+        }
+
+        .hero p {
+            margin-top: 18px;
+            font-size: 1.1rem;
+            max-width: 720px;
+            color: #1f3f48;
+        }
+
+        .hero p a {
+            color: #0b5c68;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 2px;
+            text-decoration-color: #86c5ce;
+            font-weight: 500;
+        }
+
+        /* 网格卡片 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 28px 0 36px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 24px 20px 22px;
+            box-shadow: 0 8px 20px rgba(16, 68, 76, 0.06);
+            border: 1px solid #dce9ed;
+            transition: box-shadow 0.2s, transform 0.15s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 28px rgba(13, 88, 100, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .card .icon {
+            font-size: 1.7rem;
+            margin-bottom: 8px;
+            color: #126b79;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #083e47;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #274e58;
+            flex: 1;
+        }
+
+        .card .tag {
+            margin-top: 16px;
+            display: inline-block;
+            font-size: 0.8rem;
+            background: #e0f0f2;
+            color: #0b5c68;
+            padding: 4px 14px;
+            border-radius: 30px;
+            align-self: flex-start;
+            font-weight: 450;
+        }
+
+        /* 双栏场景区 */
+        .scene-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin: 32px 0 28px;
+            background: #e3f0f2;
+            border-radius: 32px;
+            padding: 28px 24px;
+        }
+
+        .scene-text {
+            flex: 2;
+            min-width: 240px;
+        }
+
+        .scene-text h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #05424b;
+            margin-bottom: 16px;
+            border-left: 6px solid #1f8a99;
+            padding-left: 15px;
+        }
+
+        .scene-text p {
+            margin-bottom: 16px;
+            color: #1f424b;
+        }
+
+        .scene-text p a {
+            color: #0b626f;
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #7cbdc7;
+        }
+
+        .scene-highlight {
+            flex: 1.2;
+            background: white;
+            border-radius: 24px;
+            padding: 20px 20px 24px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border: 1px solid #cadddf;
+        }
+
+        .scene-highlight h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #1f7b85;
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+
+        .scene-highlight ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .scene-highlight li {
+            padding: 8px 0;
+            border-bottom: 1px solid #deedef;
+            font-size: 0.95rem;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .scene-highlight li::before {
+            content: "▹";
+            color: #2399aa;
+            font-size: 1.1rem;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin: 32px 0 28px;
+            background: white;
+            border-radius: 28px;
+            padding: 24px 24px 20px;
+            border: 1px solid #d4e4e7;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #09414a;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e5eff0;
+        }
+
+        .faq-item:last-child {
+            border: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #0a4d58;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .faq-q::before {
+            content: "Q";
+            background: #b7d9de;
+            color: #08333b;
+            font-size: 0.75rem;
+            font-weight: 600;
+            width: 22px;
+            height: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+        }
+
+        .faq-a {
+            color: #295a64;
+            padding-left: 30px;
+            font-size: 0.93rem;
+        }
+
+        .faq-a a {
+            color: #0b6c7a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* 提示条 */
+        .note-bar {
+            background: #d4eced;
+            border-radius: 40px;
+            padding: 16px 24px;
+            margin: 16px 0 6px;
+            font-size: 0.95rem;
+            color: #12434d;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .note-bar span {
+            background: #1d7e8b;
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 16px;
+            border-radius: 30px;
+            letter-spacing: 0.03em;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #4f737c;
+            border-top: 1px solid #cbdadf;
+            padding-top: 24px;
+        }
+
+        /* 移动端更舒适 */
+        @media (max-width: 600px) {
+            body { padding: 18px 12px; }
+            .hero h1 { font-size: 1.7rem; }
+            .hero .sub { font-size: 0.85rem; }
+            .scene-section { padding: 20px 16px; }
+            .card { padding: 20px 16px; }
+            .faq-mini { padding: 20px 16px; }
+            .note-bar { flex-direction: column; align-items: flex-start; gap: 6px; }
+        }
+
+        @media (max-width: 400px) {
+            .hero p { font-size: 1rem; }
+            .card-grid { gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero / 摘要 -->
+    <div class="hero">
+        <h1>爱游戏 · 产品说明</h1>
+        <div class="sub">信息聚合 · 对照参考 · 延伸阅读</div>
+        <p>
+            在日常关注赛事数据、运动资讯或休闲内容时，<a href="https://ayx-portal-sports.com">爱游戏</a>可以作为信息查询与比较的辅助入口。
+            它并非单一工具，而是一个围绕运动与娱乐内容构建的索引式平台，适合在需要快速检索、交叉比对或延伸浏览时使用。
+        </p>
+    </div>
+
+    <!-- 核心亮点：网格卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <div class="icon">📋</div>
+            <h3>聚合摘要</h3>
+            <p>将分散的联赛、队伍与动态信息整理为结构化摘要，减少逐页翻阅的时间。适合赛前快速对照或赛后回顾。</p>
+            <span class="tag">知识型浏览</span>
+        </div>
+        <div class="card">
+            <div class="icon">🔍</div>
+            <h3>对照查询</h3>
+            <p>支持多条目并列展示，方便横向对比数据与趋势。对于需要同时参考多个来源的用户，提升整合效率。</p>
+            <span class="tag">场景：资料比对</span>
+        </div>
+        <div class="card">
+            <div class="icon">📎</div>
+            <h3>延伸指引</h3>
+            <p>围绕主题提供相关的背景说明、术语参考与外部链接索引，辅助深度阅读与兴趣拓展，保持信息广度。</p>
+            <span class="tag">辅助理解</span>
+        </div>
+    </div>
+
+    <!-- 使用建议 + 场景 -->
+    <div class="scene-section">
+        <div class="scene-text">
+            <h2>使用建议 · 从日常切入</h2>
+            <p>
+                打开 <a href="https://ayx-portal-sports.com">爱游戏</a> 不需要特定准备，它更偏向一个轻量的信息桌面。你可以在午间休息、通勤间隙或赛前几分钟打开，快速浏览当日焦点或对照自己关注的队伍近况。
+                对于希望延伸了解规则演变、历史纪录或相关文化话题的用户，它也提供定向的索引入口，让查询更有脉络。
+            </p>
+            <p>
+                如果只是随意浏览，不妨从“热门摘要”或“本周对照”开始；若带着具体问题（例如某联赛的近期走势或两队交锋记录），则可以借助站点内的分类聚合，减少重复跳转。
+            </p>
+        </div>
+        <div class="scene-highlight">
+            <h4>常见使用场景</h4>
+            <ul>
+                <li>赛前快速浏览多方摘要</li>
+                <li>横向对比两支球队近期数据</li>
+                <li>查阅特定赛事的背景与术语</li>
+                <li>延伸阅读关联话题或历史记录</li>
+                <li>作为信息索引，再深入其他来源</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2>常见疑问 · 简明说明</h2>
+        <div class="faq-item">
+            <div class="faq-q">爱游戏 是官方赛事平台吗？</div>
+            <div class="faq-a">不完全是。它更接近一个信息聚合与导航站点，整合来自公开渠道的内容，方便用户对照和延伸阅读。不直接提供赛事直播或投注服务。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">是否需要注册才能浏览？</div>
+            <div class="faq-a">大部分内容可以直接浏览，无需注册。部分延伸功能或个性化设置可能建议创建账户，以保存对照列表或偏好。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">信息更新频率如何？</div>
+            <div class="faq-a">站内摘要与对照数据会定期刷新，通常按周或按日同步公开信息。用户可参考页面标注的时间戳判断时效。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">如何开始使用？</div>
+            <div class="faq-a">直接访问 <a href="https://ayx-portal-sports.com">爱游戏</a> 即可，无需下载额外软件。移动端与桌面均适配，建议保持浏览器更新以获得最佳布局。</div>
+        </div>
+    </div>
+
+    <!-- 可信但克制的访问说明 -->
+    <div class="note-bar">
+        <span>提示</span>
+        本页面仅作产品介绍与使用参考。<a href="https://ayx-portal-sports.com">爱游戏</a> 本身为信息索引站点，其内容来源与展示均遵循相关条款。建议用户根据自身需要，合理规划查询与浏览时间。
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        · 产品说明页 · 内容仅供知识参考 · 2025 ·
+    </div>
+</div>
+</body>
+</html>
